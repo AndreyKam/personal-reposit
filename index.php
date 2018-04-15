@@ -27,21 +27,19 @@ function printTree ($level=1)
         if ($e=='.' || $e=='..') continue;
         if (!@is_dir($e)) continue;
         for ($i=0; $i<$level; $i++) echo " ";
-		echo $e . "<br>";
+		//echo $e . "<br>";
         if (!chdir($e)) continue;
         printTree($level+1);
         chdir("..");
         flush();
     }
-				foreach (glob("*.jpg") as $filename) {
-				echo $filename . "<br>";
-				}
-						//$filename = glob("*.*");
-					//print_r($filename);
+			foreach (glob("*.jpg") as $filename) {
+			echo realpath($filename) . "<br>";
+			}
     closedir($d);
 }
 echo "</pre>";
-echo "/\n";
+//echo "/\n";
 chdir($_SERVER['DOCUMENT_ROOT']);
 $dir = "D:/photo";
 chdir($dir);
