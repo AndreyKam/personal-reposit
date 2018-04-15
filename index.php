@@ -38,7 +38,7 @@ function printTree ($level=1)
 echo "</pre>";
 echo "/\n";
 chdir($_SERVER['DOCUMENT_ROOT']);
-$dir = "D:/Тест";
+$dir = "D:/photo";
 chdir($dir);
 printTree();
 echo "</pre>";
