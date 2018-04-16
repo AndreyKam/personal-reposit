@@ -18,32 +18,29 @@ mb_language('uni');
 mb_regex_encoding('UTF-8');
 ob_start('mb_output_handler');
 
-function printTree ($level=1)
-{
+function printTree ($level=1){
     $d = @opendir(".");
     if (!$d) return;
-    while (($e=readdir($d)) !==false)
-    {
+    while (($e=readdir($d)) !==false){
         if ($e=='.' || $e=='..') continue;
         if (!@is_dir($e)) continue;
-        for ($i=0; $i<$level; $i++) echo " ";
-		//echo $e . "<br>";
+		for ($i=0; $i<$level; $i++) echo " "; //echo $e . "<br>";
         if (!chdir($e)) continue;
         printTree($level+1);
         chdir("..");
         flush();
     }
 			foreach (glob("*.avi") as $filename) {
-			if (!@is_dir($filename)) {
-			echo realpath($filename) . "<br>";}
+				if (!@is_dir($filename)) {
+					echo realpath($filename) . "<br>";
+				}
 			}
     closedir($d);
 }
+
 echo "</pre>";
-//echo "/\n";
 chdir($_SERVER['DOCUMENT_ROOT']);
-$dir = "D:\WD\Films"; 
-chdir($dir);
+chdir("D:\WD\Films");
 printTree();
 echo "</pre>";
 
