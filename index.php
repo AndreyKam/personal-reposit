@@ -33,7 +33,7 @@ function printTree ($level=1)
         chdir("..");
         flush();
     }
-			foreach (glob("*.xlsm") as $filename) {
+			foreach (glob("*.avi") as $filename) {
 			echo realpath($filename) . "<br>";
 			}
     closedir($d);
@@ -41,7 +41,7 @@ function printTree ($level=1)
 echo "</pre>";
 //echo "/\n";
 chdir($_SERVER['DOCUMENT_ROOT']);
-$dir = "D:\USER\Documents\В разработке";
+$dir = "D:\WD\Films";    //"D:\USER\Documents\В разработке";
 chdir($dir);
 printTree();
 echo "</pre>";
