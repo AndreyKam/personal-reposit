@@ -34,14 +34,15 @@ function printTree ($level=1)
         flush();
     }
 			foreach (glob("*.avi") as $filename) {
-			echo realpath($filename) . "<br>";
+			if (!@is_dir($filename)) {
+			echo realpath($filename) . "<br>";}
 			}
     closedir($d);
 }
 echo "</pre>";
 //echo "/\n";
 chdir($_SERVER['DOCUMENT_ROOT']);
-$dir = "D:\WD\Films";    //"D:\USER\Documents\В разработке";
+$dir = "D:\WD\Films"; 
 chdir($dir);
 printTree();
 echo "</pre>";
